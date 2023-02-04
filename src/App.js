@@ -5,13 +5,7 @@ import Footer from "./components/footer";
 import { useState } from "react";
 
 function App() {
-  const onDelete = (todo) => {
-    console.log("Deleting TODO", todo);
-    let index = todos.indexOf(todo);
-    todos.splice(index, 1);
-    console.log(todos);
-  };
-  let todos = [
+  const [todos, setTodos] = useState([
     {
       sno: 1,
       title: "go the super market",
@@ -27,14 +21,28 @@ function App() {
       title: "go the super market",
       desc: "buy groceries",
     },
-  ];
+  ]);
+
+  const Delete = (todo) => {
+    console.log("Deleting TODO", todo);
+    // This delete method does not work in react
+    // let index = todos.indexOf(todo);
+    // todos.splice(index, 1);
+    // console.log(todos);
+    setTodos(
+      todos.filter((item) => {
+        return item !== todo;
+      })
+    );
+  };
+
   return (
     <div>
       <Header title="Todo App" searchBar={false} />
-      <Todos todoList={todos} onDelete={onDelete} />
+      <Todos todoList={todos} Delete={Delete} />
       <Footer />
     </div>
   );
-}
+  };
 
 export default App;

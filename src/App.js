@@ -6,8 +6,11 @@ import AddTodo from "./components/addTodo";
 import { useState } from "react";
 
 function App() {
-  let todo = [];
-  localStorage.setItem("todos", JSON.stringify(todo));
+  if (localStorage.getItem("todos") === null) {
+    let todo = [];
+    localStorage.setItem("todos", JSON.stringify(todo));
+  }
+
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")));
 
   const Delete = (todo) => {
@@ -31,7 +34,7 @@ function App() {
     //localStorage.setItem('todos', JSON.stringify(todoTOBeAdd))
     let newTodos = [...todos, todoTOBeAdd];
     localStorage.setItem("todos", JSON.stringify(newTodos));
-    //console.log(newTodos);
+    console.log(newTodos);
     setTodos(newTodos);
   };
 

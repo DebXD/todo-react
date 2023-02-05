@@ -7,12 +7,12 @@ const Todos = (props) => {
     <div className="container">
       <h3>TODO LIST</h3>
       
-      {props.todos.length===0 || props.todos.length=== null  ? <p>NO TODOS</p>: (
+      {props.todos.length===0  ? <p>NO TODOS</p> : (
       props.todos.map((todo) => {
         return (
           <>
             <TodoItem todo={todo} key={todo.sno} Delete={props.Delete} />
-          </>
+            </>
         );
       }))
       }

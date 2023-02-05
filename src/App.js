@@ -6,6 +6,8 @@ import AddTodo from "./components/addTodo";
 import { useState } from "react";
 
 function App() {
+  let todo = [];
+  localStorage.setItem("todos", JSON.stringify(todo));
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")));
 
   const Delete = (todo) => {
@@ -41,6 +43,6 @@ function App() {
       <Footer />
     </div>
   );
-};
+}
 
 export default App;

@@ -6,8 +6,9 @@ const Todos = (props) => {
   return (
     <div className="container">
       <h3>TODO LIST</h3>
-      {props.todoList.length===0 ? <p>NO TODOS</p>: (
-      props.todoList.map((todo) => {
+      
+      {props.todos.length===0 || props.todos.length=== null  ? <p>NO TODOS</p>: (
+      props.todos.map((todo) => {
         return (
           <>
             <TodoItem todo={todo} key={todo.sno} Delete={props.Delete} />

@@ -2,26 +2,11 @@ import Header from "./components/header";
 import Todos from "./components/todos";
 //import TodoItem from "./components/todoItem";
 import Footer from "./components/footer";
+import AddTodo from "./components/addTodo";
 import { useState } from "react";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      sno: 1,
-      title: "go the super market",
-      desc: "you have to buy your daily dairy, remember",
-    },
-    {
-      sno: 2,
-      title: "drink water",
-      desc: "drink water properly",
-    },
-    {
-      sno: 3,
-      title: "go the super market",
-      desc: "buy groceries",
-    },
-  ]);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")));
 
   const Delete = (todo) => {
     console.log("Deleting TODO", todo);
@@ -29,20 +14,33 @@ function App() {
     // let index = todos.indexOf(todo);
     // todos.splice(index, 1);
     // console.log(todos);
-    setTodos(
-      todos.filter((item) => {
-        return item !== todo;
-      })
-    );
+    let newTodos = todos.filter((item) => {
+      return item !== todo;
+    });
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
+  const addTODO = (title, desc) => {
+    //console.log("adding note");
+    let sno = todos.length + 1;
+    let todoTOBeAdd = { sno: sno, title: title, desc: desc };
+    console.log(todoTOBeAdd);
+    //localStorage.setItem('todos', JSON.stringify(todoTOBeAdd))
+    let newTodos = [...todos, todoTOBeAdd];
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+    //console.log(newTodos);
+    setTodos(newTodos);
   };
 
   return (
     <div>
       <Header title="Todo App" searchBar={false} />
-      <Todos todoList={todos} Delete={Delete} />
+      <AddTodo addTODO={addTODO} />
+      <Todos todos={todos} Delete={Delete} />
       <Footer />
     </div>
   );
-  };
+};
 
 export default App;

@@ -2,12 +2,10 @@ import React from "react";
 
 const Footer = () => {
   let footerStyle = {
-    position : "absolute",
-    top : "90vh",
-    width: "100%"
+    "textAlign" : "center"
   }
-  return (<footer className="bg-dark text-light py-3" style={footerStyle}>
-    <p className="text-center">
+  return (<footer className="bg-dark text-light py-3">
+    <p className="text-center" style={footerStyle}>
     Copyright &copy; MyTodoList.com
     </p>
     

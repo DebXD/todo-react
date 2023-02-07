@@ -4,6 +4,8 @@ import Todos from "./components/todos";
 import Footer from "./components/footer";
 import AddTodo from "./components/addTodo";
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/about";
 
 function App() {
   if (localStorage.getItem("todos") === null) {
@@ -39,12 +41,20 @@ function App() {
   };
 
   return (
-    <div>
-      <Header title="Todo App" searchBar={false} />
-      <AddTodo addTODO={addTODO} />
-      <Todos todos={todos} Delete={Delete} />
-      <Footer />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <Header title="Todo App" searchBar={false} />
+            <AddTodo addTODO={addTODO} />
+            <Todos todos={todos} Delete={Delete} />
+            <Footer />
+          </>
+        }
+      />
+      <Route path="/about" element={<About />} />
+    </Routes>
   );
 }
 

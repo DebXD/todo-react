@@ -41,20 +41,22 @@ function App() {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <Header title="Todo App" searchBar={false} />
-            <AddTodo addTODO={addTODO} />
-            <Todos todos={todos} Delete={Delete} />
-            <Footer />
-          </>
-        }
-      />
-      <Route path="/about" element={<About />} />
-    </Routes>
+    <>
+      <Header title="Todo App" searchBar={false} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <AddTodo addTODO={addTODO} />
+              <Todos todos={todos} Delete={Delete} />
+            </>
+          }
+        />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

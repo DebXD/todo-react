@@ -10,6 +10,8 @@ export default function AddTodo(props) {
             alert('Title or description can not be empty!')
         }
         props.addTODO(title, desc)
+        setTitle("");
+        setDesc("");
         
     }
   return (

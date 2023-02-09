@@ -18,21 +18,20 @@ export default function AddTodo(props) {
     <div className="container">
     <form onSubmit={submit}>
         
-        <div className="mb-3">
+        <div className="mb-3 mt-3">
             <label>
             TITLE
             </label>
             <input
             type="text"
             className="form-control"
-            placeholder="this is a title"
             value={title}
             onChange={e => setTitle(e.target.value)}
             />
         </div>
         <div className="mb-3">
             <label className="form-label">
-            DESC.
+            DESCRIPTION
             </label>
             <textarea
             className="form-control"
@@ -40,8 +39,9 @@ export default function AddTodo(props) {
             value={desc}
             onChange={e => setDesc(e.target.value)}></textarea>
         </div>
-        <button className="btn btn-outline-dark">Submit</button>
-        
+        <div className="text-center">
+            <button className="btn btn-outline-dark btn-md my-3">Submit</button>
+        </div>
         </form>
         </div>
   );

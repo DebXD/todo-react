@@ -5,8 +5,8 @@ const Todos = (props) => {
     
   return (
     <div className="container">
-      <h3>TODO LIST</h3>
-      
+      <h3 className="text-center">TODO LIST</h3>
+      <ul className="list-group my-4">
       {props.todos.length===0  ? <p>NO TODOS</p> : (
       props.todos.map((todo) => {
         return (
@@ -14,6 +14,7 @@ const Todos = (props) => {
         );
       }))
       }
+      </ul>
     </div>
   );
 };

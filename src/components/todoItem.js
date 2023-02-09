@@ -12,8 +12,8 @@ const TodoItem = (props) => {
       <button
         className="btn btn-outline-danger mb-3"
         onClick={() => {
-          window.confirm("Are you sure, You want to delete?");
-          if (true) {
+          
+          if (window.confirm("Are you sure, You want to delete?")) {
             props.Delete(props.todo);
           }
         }}

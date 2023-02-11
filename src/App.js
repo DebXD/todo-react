@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>
-      <Header title="Todo App" searchBar={false} />
+      <Header title="TODOS" searchBar={false} />
       <Routes>
         <Route
           path="/"

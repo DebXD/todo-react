@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   let cpStyle = {
-    "font-size": "0.7rem",
+    fontSize: "0.7rem",
   };
   return (
     <footer className="bg-dark text-light py-3">

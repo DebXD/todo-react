@@ -1,6 +1,5 @@
 import Header from "./components/header";
 import Todos from "./components/todos";
-//import TodoItem from "./components/todoItem";
 import Footer from "./components/footer";
 import AddTodo from "./components/addTodo";
 import { useState } from "react";
@@ -39,6 +38,18 @@ function App() {
     console.log(newTodos);
     setTodos(newTodos);
   };
+  // fn for editing todo
+  const editTODO = (key, editedTitle, editedDesc) => {
+    console.log(key, editedTitle, editedDesc);
+
+    let newTodos = todos.filter((item) => {
+      return item.sno !== key;
+    });
+    let editedTodo = { sno: key, title: editedTitle, desc: editedDesc };
+    let editedTodos = [...newTodos, editedTodo];
+    localStorage.setItem("todos", JSON.stringify(editedTodos));
+    setTodos(editedTodos);
+  };
 
   return (
     <>
@@ -49,7 +60,7 @@ function App() {
           element={
             <>
               <AddTodo addTODO={addTODO} />
-              <Todos todos={todos} Delete={Delete} />
+              <Todos todos={todos} Delete={Delete} editTODO={editTODO} />
             </>
           }
         />

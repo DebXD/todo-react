@@ -10,7 +10,7 @@ const Todos = (props) => {
       {props.todos.length===0  ? <p>NO TODOS</p> : (
       props.todos.map((todo) => {
         return (
-            <TodoItem todo={todo} key={todo.sno} Delete={props.Delete} />
+            <TodoItem todo={todo} key={todo.sno} Delete={props.Delete} editTODO={props.editTODO}/>
         );
       }))
       }

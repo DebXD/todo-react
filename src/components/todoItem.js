@@ -14,7 +14,10 @@ const TodoItem = (props) => {
     if (!title || !desc){
       alert('Title or description can not be empty!')
   }
+  else{
     props.editTODO(props.todo.sno, title, desc)
+  }
+    
 
   }
 
